@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Parsec3" Class="ParsecDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DRGSKD01\PARSECSQLEXPRESS;Initial Catalog=Parsec3;Persist Security Info=True;User ID=sa" SettingsObjectName="NewCardUIDToParsec.Properties.Settings" SettingsPropertyName="Parsec3ConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.v_DRG_CARD_IDENTIFIERS" Member="v_DRG_CARD_IDENTIFIERS">
+    <Type Name="v_DRG_CARD_IDENTIFIERS">
+      <Column Name="PERS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="TAB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LAST_NAME" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="FIRST_NAME" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="MIDDLE_NAME" Type="System.String" DbType="NVarChar(64)" CanBeNull="true" />
+      <Column Name="ORG_NAME" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="POST" Type="System.Object" DbType="Variant" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CARD_UID" Type="System.String" DbType="Char(8)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DRG_CARD_UID" Member="DRG_CARD_UID">
+    <Type Name="DRG_CARD_UID">
+      <Column Name="PERS_ID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UID" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Person_GetPhoto" Method="Person_GetPhoto">
+    <Parameter Name="pers_id" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="Person_GetPhotoResult">
+      <Column Name="PHOTO" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
